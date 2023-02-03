@@ -4,7 +4,7 @@ $port = 3306;
 $user = 'freedb_oti_root';
 $pass = 'Eaf9ff*UpQEH#$H';
 $database = 'freedb_oti_light_switching';
-$bulb_name = "Testing";
+$bulb_name = "Mavericks";
 
 // Criando a conexão com o banco de dados
 $link = mysqli_connect($host, $user, $pass, $database,$port);
