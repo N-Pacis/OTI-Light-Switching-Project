@@ -14,7 +14,7 @@ if (!$link) {
     die('Unable to connect to database due to : ' . mysqli_connect_error());
 }
 
-$query = "CREATE TABLE IF NOT EXISTS bulb_status(id INT PRIMARY KEY AUTO_INCREMENT,device_name varchar(100) UNIQUE NOT NULL, status varchar(50) NOT NULL)";
+$query = "CREATE TABLE IF NOT EXISTS mavericks_oti_light(id INT PRIMARY KEY AUTO_INCREMENT,device_name varchar(100) UNIQUE NOT NULL, status varchar(50) NOT NULL)";
 $link->execute_query($query);
 header('Access-Control-Allow-Origin: *');
 ?>

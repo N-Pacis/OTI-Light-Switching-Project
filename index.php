@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
   <title>Turn On Button Effect || Code Village</title>
 </head>
-
 <body>
   <p>Manage Light</p>
   <label id="btn">
@@ -14,7 +12,6 @@
     <span><img src="bulb_off.png" alt="" class="icon"></span>
     <div class="bulb" id="bulb"></div>
   </label>
-
   <audio id="audio" src="click.mp3" autostart="false"></audio>
   <script type=text/javascript>
     let btn = document.querySelector('#btn');
@@ -29,22 +26,16 @@
       }
       audio.play();
       validate();
-
-
     }
-
     function validate() {
       if (checkbox.checked) {
         sendOn();
       } else {
-
         sendOff();
       }
     }
-
     function sendOn() {
-
-      fetch('/save.php', {
+      fetch('/projects/9750b82a030cb3c2f4863a55144ca0bf/OTI-Light-Switching-Project/save.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -53,12 +44,10 @@
           "status": "ON"
         })
       })
-
     }
-
     function sendOff() {
       
-      fetch('/save.php', {
+      fetch('/projects/9750b82a030cb3c2f4863a55144ca0bf/OTI-Light-Switching-Project/save.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -71,8 +60,7 @@
     //status of the bulb
     function update() {
       let bulb = document.getElementById("bulb");
-
-      $.get("/status.php", function(data) {
+      $.get("/projects/9750b82a030cb3c2f4863a55144ca0bf/OTI-Light-Switching-Project/status.php", function(data) {
         if (data == "ON") {
           checkbox.checked = true;
           bulb.style.backgroundImage = "url('./bulb_on.png')";
@@ -88,5 +76,4 @@
   </script>
   <script type="text/javascript" src="./jquery.js"></script>
 </body>
-
 </html>

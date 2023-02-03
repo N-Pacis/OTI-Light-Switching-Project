@@ -24,16 +24,16 @@ if ($method === 'POST' || $method === 'OPTIONS') {
 function saveDataToDb($status) {
     
     include 'connection.php';
-    $query = "SELECT * FROM bulb_status where device_name = '$bulb_name' ";
+    $query = "SELECT * FROM freedb_oti_light_switching.mavericks_oti_light where device_name = '$bulb_name' ";
     $result = $link->query($query);
     if($result->num_rows < 1){
-        $stmt = $link->prepare("INSERT INTO bulb_status ($bulb_name, status) VALUES (?, ?)");
-        $stmt->bind_param("ss", $bulb_namee, $status);
+        $stmt = $link->prepare("INSERT INTO freedb_oti_light_switching.mavericks_oti_light(device_name, status) VALUES (?, ?)");
+        $stmt->bind_param("ss", $bulb_name, $status);
         $stmt->execute();
         $stmt->close();
     }
     else {
-        $update_query = $link->prepare("UPDATE bulb_status SET status = ? WHERE device_name = ?");
+        $update_query = $link->prepare("UPDATE freedb_oti_light_switching.mavericks_oti_light SET status = ? WHERE device_name = ?");
         $update_query->bind_param("ss", $status, $bulb_name);
     
         // Execute the query
