@@ -7,16 +7,17 @@ if($result->num_rows >0 ){
     $rowData = mysqli_fetch_assoc($result);
     if($rowData['status'] == 'ON'){
         http_response_code(200);
-        echo json_encode(['status' => 'ON']);
+        echo 'ON';
     }
     else{
         http_response_code(200);
-        echo json_encode(['status' => 'OFF']);
+        echo 'OFF';
     }
 }
 else{
     http_response_code(200);
-    echo json_encode(['status' => 'OFF']);
+    echo 'OFF';
+
 }
 
 ?>

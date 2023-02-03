@@ -73,11 +73,8 @@
       let bulb = document.getElementById("bulb");
 
       $.get("/status.php", function(data) {
-        data = JSON.parse(data);
-        console.log(data)
-        if (data.status == "ON") {
+        if (data == "ON") {
           checkbox.checked = true;
-
           bulb.style.backgroundImage = "url('./bulb_on.png')";
         } else {
           checkbox.checked = false;
